@@ -1,0 +1,43 @@
+<div class="container">
+    <div >
+    <div *ngIf="data.Owner.username == username" class="post">
+        <mat-card>
+            <mat-card-content>
+                    <mat-form-field appearance="standard" class="createPost">
+                            <mat-label>Escreva aqui</mat-label>
+                            <textarea
+                                matInput
+                                [(ngModel)]="postagem"
+                                rows="4" >
+                            </textarea>
+                        </mat-form-field>
+            <form>
+                <div class="form-group">
+                    <input type="file" class="form-control-file" (change)="getFile($event)" multiple>
+                </div>
+            </form>
+            </mat-card-content>
+                <mat-card-actions *ngIf="!loading">
+                    <button mat-button mat-raised-button (click)="post()">Postar</button>
+                </mat-card-actions>
+        </mat-card>
+
+                
+    </div>
+
+
+    <div  *ngFor="let p of data.posts, index as i" class="post">
+            <mat-card>
+                <mat-card-title-group>
+                    <mat-card-title>{{p.text}}</mat-card-title>
+                    <mat-card-subtitle>Publicado em {{p.pubDate}}</mat-card-subtitle>
+                </mat-card-title-group>
+                <img class="img" *ngIf="p.files.length>0" mat-card-image 
+                src="{{'data:image/jpg;base64,' + p.files[0].binary}}" />
+                    
+                    
+            </mat-card>
+            
+    </div>
+    </div>
+</div>

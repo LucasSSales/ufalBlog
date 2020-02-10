@@ -1,0 +1,13 @@
+<app-menu-bar></app-menu-bar>
+<div class="top">
+    <h1>{{data.name}}</h1>
+    <h6 class="small">Código da turma: {{data.uniqueCode}}</h6>
+</div>
+
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Postagens"><app-posts-screen></app-posts-screen></mat-tab>
+    <!-- <mat-tab label="Atividades"><app-activity-screen></app-activity-screen></mat-tab>
+    <mat-tab label="Forum"><app-forum></app-forum></mat-tab> -->
+</mat-tab-group>
+
+
